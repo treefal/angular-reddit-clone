@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-header" style="text-align: center"><h4>Login</h4></div>
         <div class="card-body">
-          <form [formGroup]="loginForm">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
             <!-- Username input -->
             <div class="form-group row">
               <label
@@ -69,6 +69,11 @@
                 New to Spring Reddit? <a routerLink="/signup">SIGN UP</a>
               </span>
             </span>
+            <div class="login-failed" *ngIf="this.isError">
+              <p class="login-failed-text">
+                Login failed! Please check your credentials and try again!
+              </p>
+            </div>
           </form>
         </div>
       </div>
