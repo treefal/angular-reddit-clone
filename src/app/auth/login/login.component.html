@@ -74,6 +74,13 @@
                 Login failed! Please check your credentials and try again!
               </p>
             </div>
+            <div
+              class="login-failed"
+              [ngStyle]="{ 'background-color': 'green' }"
+              *ngIf="this.registerSuccessMessage.length > 0"
+            >
+              <p class="register-success-text">{{ registerSuccessMessage }}</p>
+            </div>
           </form>
         </div>
       </div>
