@@ -17,6 +17,8 @@ import { PostTileComponent } from './shared/post-tile/post-tile.component';
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { SubredditSideBarComponent } from './shared/subreddit-side-bar/subreddit-side-bar.component';
+import { CreateSubredditComponent } from './subreddit/create-subreddit/create-subreddit.component';
+import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
 import { TokenInterceptor } from './token-interceptor';
 
 @NgModule({
@@ -30,6 +32,8 @@ import { TokenInterceptor } from './token-interceptor';
     VoteButtonComponent,
     SideBarComponent,
     SubredditSideBarComponent,
+    CreateSubredditComponent,
+    ListSubredditsComponent,
   ],
   imports: [
     BrowserModule,
