@@ -23,6 +23,7 @@ import { TokenInterceptor } from './token-interceptor';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     ToastrModule.forRoot(),
     FontAwesomeModule,
     EditorModule,
+    NgbModule,
   ],
   providers: [
     {
