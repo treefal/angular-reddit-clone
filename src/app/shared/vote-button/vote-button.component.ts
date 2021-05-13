@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { PostModel } from '../post-model';
 import { PostService } from '../post.service';
 import { VoteService } from '../vote.service';
@@ -25,6 +26,7 @@ export class VoteButtonComponent implements OnInit {
 
   constructor(
     private voteService: VoteService,
+    private authService: AuthService,
     private postService: PostService,
     private toastr: ToastrService
   ) {
@@ -32,18 +34,25 @@ export class VoteButtonComponent implements OnInit {
       voteType: undefined,
       postId: undefined,
     };
+    this.authService.loggedIn.subscribe(
+      (data: boolean) => (this.isLoggedIn = data)
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateVoteDetails();
+  }
 
   upvotePost() {
     this.votePayload.voteType = VoteType.UPVOTE;
     this.vote();
+    this.downvoteColor = '';
   }
 
   downvotePost() {
     this.votePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
+    this.upvoteColor = '';
   }
 
   private vote() {
